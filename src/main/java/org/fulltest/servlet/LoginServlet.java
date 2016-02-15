@@ -11,7 +11,7 @@ import org.fulltest.auth.AuthHandler;
 import org.fulltest.util.ResponseUtil;
 
 public class LoginServlet extends HttpServlet {
-	static final String LOGIN_PAGE = "login.html";
+	static final String LOGIN_PAGE = "login.vm";
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		boolean loggedIn = false;
