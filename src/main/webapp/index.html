@@ -16,9 +16,9 @@ $(document).ready( function()
 {
 	var loggedInP = $("#loggedin");
 	if (checkAuthCookie()) {
-		document.location = "/test/";
+		$("#loggedin").text("Logged in!");
 	} else {
-		document.location = "/login/";
+		$("#loggedin").text("Not logged in");
 	}
 	
 	$.ajax(

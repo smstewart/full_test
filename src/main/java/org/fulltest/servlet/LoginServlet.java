@@ -1,4 +1,4 @@
-package org.fulltest;
+package org.fulltest.servlet;
 
 import java.io.IOException;
 
@@ -14,6 +14,9 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		boolean loggedIn = false;
 		Cookie[] cookies = request.getCookies();
+		if (cookies == null) {
+			cookies = new Cookie[0];
+		}
 		for (Cookie c : cookies) {
 			if (c.getName() == AuthHandler.authCookieName) {
 				loggedIn = AuthHandler.isValidAuthCookie(c);

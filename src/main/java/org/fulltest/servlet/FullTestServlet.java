@@ -1,4 +1,4 @@
-package org.fulltest;
+package org.fulltest.servlet;
 
 import java.io.IOException;
 import java.util.HashMap;

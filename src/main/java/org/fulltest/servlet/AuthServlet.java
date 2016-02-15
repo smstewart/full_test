@@ -1,4 +1,4 @@
-package org.fulltest;
+package org.fulltest.servlet;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
