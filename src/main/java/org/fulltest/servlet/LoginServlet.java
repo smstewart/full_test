@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.fulltest.auth.AuthHandler;
+import org.fulltest.util.ResponseUtil;
 
 public class LoginServlet extends HttpServlet {
+	static final String LOGIN_PAGE = "login.html";
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		boolean loggedIn = false;
@@ -28,9 +30,7 @@ public class LoginServlet extends HttpServlet {
 			response.encodeRedirectURL("/test/");
 			return;
 		}
-		response.setStatus(HttpServletResponse.SC_OK);
-		response.setContentType("text/html");
-		response.getWriter().println("Login here k?");
-		response.addCookie(AuthHandler.createAuthCookie("user", "pass"));
+		ResponseUtil.getUtil().writeFileToResponse(response, LOGIN_PAGE);
+		//response.addCookie(AuthHandler.createAuthCookie("user", "pass"));
 	}
 }
