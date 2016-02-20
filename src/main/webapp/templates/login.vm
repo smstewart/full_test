@@ -1,1 +1,13 @@
-<h1>Login vm</h1>
+<h1>Login</h1>
+
+#if(${login_failed})
+<div id="login_failed_message">
+Oh no! Invalid credentials!
+</br>
+</div>
+#end
+<form action="login" method="post">
+<input type="text" name="username" placeholder="Username"> </input></br>
+<input type="password" name="password" placeholder="Password"> </input></br>
+<input type="submit" value="Login">
+</form>
