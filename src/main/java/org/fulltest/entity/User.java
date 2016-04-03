@@ -1,23 +1,23 @@
 package org.fulltest.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_record")
 public class User {
 	@Id
+	@GeneratedValue(generator = "user_record_gen")
+	@SequenceGenerator(name = "user_record_gen", sequenceName = "user_record_seq")
 	private long id;
 	private String username;
 	private String password;
 	
 	public long getId() {
 		return id;
-	}
-	
-	public void setId(long id) {
-		this.id = id;
 	}
 
 	public String getUsername() {
@@ -36,5 +36,11 @@ public class User {
 		this.password = password;
 	}
 	
-	
+	public static User createUser(String username, String password) {
+		User u = new User();
+		u.setUsername(username);
+		u.setPassword(password);
+		
+		return u;
+	}
 }

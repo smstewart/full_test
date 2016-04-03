@@ -1,22 +1,23 @@
 package org.fulltest.entity;
 
-import org.hibernate.*;
-import org.hibernate.cfg.*;
+import org.fulltest.util.SessionUtil;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.junit.Test;
 
 public class UserTest {
 	@Test
 	public void testCreateUser() {
-		Session sess = new Configuration().configure().buildSessionFactory().openSession();
+		Session sess = SessionUtil.getUtil().getSession();
 		
 		Transaction t = sess.beginTransaction();
 		
-		User u1 = new User();
-		u1.setId(1);
-		u1.setUsername("user one");
-		u1.setPassword("pass one");
+		User u1 = User.createUser("user one", "pass one");
+		
+		User u2 = User.createUser("name two", "pass two");
 		
 		sess.persist(u1);
+		sess.persist(u2);
 		
 		t.commit();
 		sess.close();
