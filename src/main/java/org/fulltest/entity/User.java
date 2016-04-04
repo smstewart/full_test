@@ -6,6 +6,10 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.fulltest.util.SessionUtil;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 @Entity
 @Table(name = "user_record")
 public class User {
@@ -41,6 +45,18 @@ public class User {
 		u.setUsername(username);
 		u.setPassword(password);
 		
+		u.save();
+		
 		return u;
+	}
+	
+	private void save() {
+		Session sess = SessionUtil.getUtil().getSession();
+		Transaction t = sess.beginTransaction();
+		
+		sess.persist(this);
+		
+		t.commit();
+		sess.close();
 	}
 }

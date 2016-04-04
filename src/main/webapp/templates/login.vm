@@ -15,3 +15,7 @@ Oh no! Invalid credentials!
 <input type="password" name="password" placeholder="Password"> </input></br>
 <input type="submit" value="Login">
 </form>
+</br>
+Click
+<a href="register">here</a>
+to register

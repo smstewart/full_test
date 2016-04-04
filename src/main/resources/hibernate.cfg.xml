@@ -16,7 +16,7 @@
         <property name="connection_pool_size">1</property>
         <property name="hbm2ddl.auto">create</property>
           
-		<mapping class="org.fulltest.User"/>  
+		<mapping class="org.fulltest.entity.User"/>  
 	</session-factory>  
       
 </hibernate-configuration>  

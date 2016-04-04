@@ -1,0 +1,7 @@
+<h1>Create user</h1>
+
+<form action="register" method="post">
+<input type="text" name="username" placeholder="Username"> </input></br>
+<input type="password" name="password" placeholder="Password"> </input></br>
+<input type="submit" value="Create User">
+</form>
