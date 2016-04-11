@@ -15,7 +15,7 @@ web server</br></br>
 	<li>CREATE DATABASE full_test_db_units;</li>
 	<li>CREATE USER fulltestuser WITH PASSWORD 'fulltestpassword';</li>
 	<li>GRANT ALL PRIVILEGES ON DATABASE full_test_db TO fulltestuser;</li>
-	<li>GRANT ALL PRIVILEGES ON DATABASE full_test_db_units_ TO fulltestuser;</li>
+	<li>GRANT ALL PRIVILEGES ON DATABASE full_test_db_units TO fulltestuser;</li>
 </ul>
 <h3>Maven Commands</h3>
 <ul>
