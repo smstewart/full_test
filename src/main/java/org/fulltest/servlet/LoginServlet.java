@@ -27,6 +27,11 @@ public class LoginServlet extends HttpServlet {
 		for (Cookie c : cookies) {
 			if (c.getName().equals(AuthHandler.authCookieName)) {
 				loggedIn = AuthHandler.isValidAuthCookie(c);
+				if (loggedIn && request.getServletPath().contains("/logout")) {
+					c.setMaxAge(0); // Expire auth cookie
+					response.addCookie(c);
+					loggedIn = false; 
+				}
 			}
 		}
 		
@@ -35,7 +40,6 @@ public class LoginServlet extends HttpServlet {
 			return;
 		}
 		responseUtil.writeFileToResponse(response, LOGIN_PAGE);
-		//response.addCookie(AuthHandler.createAuthCookie("user", "pass"));
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {

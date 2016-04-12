@@ -16,6 +16,4 @@ Oh no! Invalid credentials!
 <input type="submit" value="Login">
 </form>
 </br>
-Click
-<a href="register">here</a>
-to register
+Click <a href="/register/">here</a> to register

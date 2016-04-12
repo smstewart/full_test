@@ -1,3 +1,5 @@
 <h1>Full Test</h1>
 You are signed in as ${username}</br>
-Enjoy the site!
+Enjoy the site!</br>
+</br>
+Click <a href="/logout">here</a> to logout
