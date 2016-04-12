@@ -5,10 +5,15 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.servlet.http.Cookie;
 
+import org.fulltest.entity.User;
+
 public class AuthHandler {
 	public static final String authCookieName = "fullTestAuth";
 	
 	public static boolean isValidCredentials(String username, String password) {
+		User user = User.getUser(username);
+		return (user != null && user.getPassword().equals(password));
+		 /* Use once password is hashed
 		MessageDigest md = getMessageDigest();
 		md.update(password.getBytes());
 		byte[] output = md.digest();
@@ -16,7 +21,7 @@ public class AuthHandler {
 		if (username.equals("failme") || password.equals("failme")) {
 			return false;
 		}
-		return true;
+		return true;*/ 
 	}
 	
 	protected static MessageDigest getMessageDigest() {

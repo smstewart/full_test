@@ -1,5 +1,7 @@
 package org.fulltest.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -48,6 +50,17 @@ public class User {
 		u.save();
 		
 		return u;
+	}
+	
+	public static User getUser(String username) {
+		try(Session sess = SessionUtil.getUtil().getSession()) {
+			List users = sess.createQuery("from User as user where user.username = :username")
+					.setString("username", username).list();
+			if (users.size() > 0) {
+				return (User) users.get(0);
+			} 
+			return null;
+		}
 	}
 	
 	private void save() {
